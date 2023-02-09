@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var keyVaultConfig = builder.Configuration.GetSection("keyVaultConfig").Get<KeyVaultConfig>();
 
+
 // Connects and reads Azure KeyVault  
 var client = new SecretClient(new Uri(keyVaultConfig.KVUrl), 
     new ClientSecretCredential(keyVaultConfig.TenantId, keyVaultConfig.ClientId, keyVaultConfig.ClientSecretId));
